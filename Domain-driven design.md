@@ -892,11 +892,148 @@ khác biệt và lợi thế cạnh tranh
     margin: 0;
   }
   p {
-    text-decoration: underline;
     font-size: 1.2em;
   }
 </style>
 
 # **Event Storming**
 
-<!-- This section for Event Storming. Update later -->
+> What's happening in the domain?
+
+---
+
+# **Giới thiệu**
+
+- Event Storming là một phương pháp workshop để khám phá và hiểu domain.
+- Được áp dụng xuyên suốt quá trình phân tích, không phải chỉ ở đầu dự án.
+- Giúp trả lời: **"How are we gonna build it?"**
+
+---
+
+# **Công cụ cần thiết**
+
+- Bút, bảng trắng, giấy trắng, giấy nhớ...
+- Chủ yếu là teamwork và trao đổi!
+
+---
+
+# **1. Extract Domain Events**
+
+- **Domain Event** là những gì đã xảy ra trong domain mà domain experts quan tâm.
+- Đặt câu hỏi: **"What just happened?"**
+- Chỉ cần xác định sự kiện đã xảy ra, chưa cần biết khi nào.
+
+---
+
+# **Ví dụ Domain Events**
+
+Mini book shop:
+- BookAddedToCart
+- CartCheckedOut
+- OrderCreated
+- PaymentSucceeded
+- OrderDelivered
+
+---
+
+# **2. Setting up Commands**
+
+- **Command** là hành động gây ra thay đổi trong hệ thống (side effect).
+- Command là tác nhân sinh ra domain event.
+- Được gọi từ user hoặc hệ thống bên ngoài.
+
+---
+
+# **Ví dụ Command**
+
+- Event: *BookAddedToCart*
+- Command: *AddBookToCart* (người dùng thêm sách vào giỏ)
+
+---
+
+# **3. Find Aggregate**
+
+> An aggregate is a cluster of associated objects that we treat as a unit for the purpose of data changes."
+
+- Aggregate đảm bảo các thay đổi tuân theo business rules.
+- Mỗi Aggregate có một **Aggregate Root**.
+
+---
+
+# **Ví dụ Aggregate**
+
+- Đơn hàng (Order) là Aggregate, Order là Aggregate Root.
+- Các mục đơn hàng chỉ được chỉnh sửa thông qua Order.
+- *BookAddedToCart* thuộc về Aggregate Cart.
+
+---
+
+# **4. Write Policies**
+- **event-driven orchestration** rules
+- **Policy** là quy tắc hoặc hành động kích hoạt khi một event xảy ra.
+- Định nghĩa: **WHEN** [event] **THEN** [command].
+
+---
+
+# **Ví dụ Policy**
+
+- WHEN khách hàng gửi thanh toán THEN xác nhận đơn hàng.
+- WHEN đơn hàng được xác nhận THEN tiến hành giao hàng.
+
+---
+
+# **5. Delimit Bounded Context**
+
+> The delimited applicability of a particular model. Bounded Contexts gives team members a clear and shared understanding of what has to be consistent and what can develop independently.
+
+---
+
+# **Bounded Context & Context Map**
+
+- Xác định ranh giới để chia context.
+- Vẽ **Context Map** để biểu diễn cách các context tương tác.
+
+---
+
+# **Các kiểu quan hệ Context**
+
+- **Shared Kernel**: Hai context chia sẻ một phần chung.
+- **Customer-Supplier**: Một context phụ thuộc vào context khác.
+- **Anti-Corruption Layer**: Lớp bảo vệ tránh ảnh hưởng tiêu cực từ hệ thống khác.
+
+---
+
+# **Lợi ích của Bounded Context**
+
+- Xây dựng các module độc lập, giảm phụ thuộc.
+- Dễ bảo trì, mở rộng, phù hợp microservices/modular monolith.
+- Các team phát triển song song, tiết kiệm thời gian.
+
+---
+
+![bg contain](assets/event-storming.png)
+
+---
+
+# **Kết bài**
+
+- Chuỗi bài viết về DDD và các topics liên quan, mục đích học tập và cải thiện tư duy.
+- Tham khảo thêm:
+  - [Github Discussion](https://github.com/hongsan/random/discussions)
+  - [Linkedin - NGUYEN Hong San](https://www.linkedin.com/in/nguyenhongsan/)
+
+---
+
+# **References**
+- [Domain-Driven Design: Tackling Complexity in the Heart of Software](https://www.google.com.vn/books/edition/Domain_Driven_Design/hHBf4YxMnWMC?hl=en&gbpv=0)
+- [Domain-Driven Design Quickly](https://www.google.com.vn/books/edition/Domain_Driven_Design_Quickly/CfdHAgAAQBAJ?hl=en&gbpv=1&printsec=frontcover)
+- [Implementing Domain-Driven Design](https://www.google.com.vn/books/edition/Implementing_Domain_Driven_Design/X7DpD5g3VP8C?hl=en&gbpv=1&dq=Implementing+Domain&printsec=frontcover)
+
+---
+
+![bg left:40% 90%](image.png)
+
+# **Big Shoutout**
+
+- [Github Discussion - Tập viết](https://github.com/hongsan/random/discussions)
+- [Linkedin - NGUYEN Hong San](https://www.linkedin.com/in/nguyenhongsan/)
