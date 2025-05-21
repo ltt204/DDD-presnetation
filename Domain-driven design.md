@@ -82,9 +82,8 @@ _Neal Ford & Mark Richards.
 
 # **Tại sao lại cần tới DDD?**
 
-- Với một domain phức tạp bạn không thể cứ thế lao vào, đâm đầu lập trình hệ thống
-- Điều đầu tiên là hiểu domain
-- Nhưng Domain quá phức tạp
+- Với một domain không thể ngay lập tức lập trình hệ thống
+- Điều đầu tiên là hiểu domain, nhưng Domain quá phức tạp
 
 &rarr; Hãy phân tích, phân rã thành từng phần nhỏ và cấu trúc các phần ấy lại.
 
@@ -201,22 +200,18 @@ Hơn nữa, việc hiểu về domain cần sự kết nối giữa các đội 
 		font-size: 2.5em;
 		margin: 0;
 	}
-
-	p {
-		text-decoration: underline;
-	}
 </style>
 
 # **Model & Domain Model**
-The Abstraction of the Domain
+> The Abstraction of the Domain
 
 ---
 # **Model**
 
-- **Model** là sự đơn giản hóa, có cấu trúc, được rút ra từ domain
+- **Model** là sự đơn giản hóa, có cấu trúc, được rút ra từ domain.
 - **Modeling** là một quá trình trừu tượng hóa domain thành các đối tượng, thuộc tính và hành vi của nó.
-- Kết quả cho ra một bản Blueprint của một hệ thống
-- Blueprint cũng có thể là một sơ đồ, một tài liệu hay một đoạn code
+- Kết quả cho ra một bản Blueprint.
+- Blueprint cũng có thể là một sơ đồ, một tài liệu hay một đoạn code.
 
 ---
 <style scoped>
@@ -242,7 +237,7 @@ The Abstraction of the Domain
 </style>
 
 # **Model**
-> The volume and complexity of information can be overwhelming. This is when a development team can use modeling to wrestle with that overload. A **model** is a selectively simplified and consciously structured form of knowledge. 
+> The volume and complexity of information can be overwhelming. This is when a development team can use modeling to wrestle with that overload. A **model** is a **selectively** simplified and consciously **structured** *form of knowledge*. 
 \- Eric Evans.
 
 ---
@@ -268,13 +263,18 @@ The Abstraction of the Domain
 # **Domain Model**
 > The **Domain Model** is not a particular diagram
 It is the idea that the diagram is intended to convey.
+\- Eric Evans.
 
 ---
 # **Domain Model**
 - **Domain** xuất phát từ thế giới thực, nhưng **Domain Model** không cần quá sát với thực tế.
-- Nhìn **Domain** từ nhiều gốc độ, sẽ giúp ta hình thành nhiều **Model**, từ đó cho ta nhiều hướng đi cho việc phát triển hệ thống
+- Nhìn **Domain** từ nhiều góc độ sẽ hình thành nhiều **Model**, tạo ra hướng đi cho việc phát triển phù hợp với hệ thống.
+- Các model được thực hiện song song, ví dụ như:
+  - Với **BA** Conceptual Model hay Analyst Model
+  - Với **Developer**: Implementation Model
+  - Với **Designer**: UI Model
+--- 
 
----
 # **Ubiquitous Language**
 
 - Là một khái niệm cốt lõi trong DDD
@@ -336,23 +336,13 @@ Nếu hai bên không có ngôn ngữ chung:
 
 ---
 
-<style scoped>
-  section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+# **Ubiquitous Language**
 
-  blockquote {
-    text-align: center;
-    font-size: 1.3em;
-    padding: 1em;
-    border-radius: 10px;
-  }
-</style>
-
-> Ubiquitous Language không phải là một loại ngôn ngữ, nó đại diện cho việc giao tiếp giữa các thành viên trong team với nhau. Mọi người trao đổi, xây dựng nên bộ quy tắc để giao tiếp về khái niệm **xung quanh một model**, và họ sẽ phải cam kết sử dụng các quy ước trên trong suốt quá trình làm việc.
+1. Không phải là một loại ngôn ngữ
+2. Đại diện cho việc giao tiếp giữa các thành viên với nhau
+3. Khi trao đổi, sẽ hình thành nên bộ quy tắc để giao tiếp 
+4. Bộ quy tắc phải **xoay quanh model**
+5. Cam kết sử dụng trong suốt quá trình làm việc.
 
 ---
 
@@ -484,8 +474,6 @@ Trong shop bán sách:
 - Không cần theo dõi vòng đời của nó
 - Có thể chia sẻ (sharable)
 
-<!-- Ví dụ: Địa chỉ của một user - hai địa chỉ có thuộc tính giống nhau được xem là một -->
-
 ---
 
 # **Vì sao cần Value Object?**
@@ -594,7 +582,8 @@ Cluster of associated objects
 
 # **Aggregate là gì?**
 
-> Aggregate là một cụm các đối tượng domain liên kết logic, và được truy cập thông qua Aggregate Root duy nhất (thường là một Entity)
+- Là một cụm (cluster) các đối tượng domain có liên kết logic
+- Được truy cập thông qua **Aggregate Root** duy nhất (thường là một Entity)
 
 ---
 
@@ -682,6 +671,31 @@ Mọi thay đổi đến order items hoặc delivery info đều thông qua Orde
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+  }
+
+  p {
+    font-size: 1.2em;
+    margin: 0;
+    text-align: center;
+  }
+</style>
+
+<div style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); padding: 10px; border-radius: 5px;">
+<img src="assets/netflix-architecture.png" alt="AWS re:Invent 2015" width="1000" style="border-radius: 5px;">
+
+<p style="margin: 5px 0 0 0; font-size: 0.8em; color: #ddd;">
+<em>Source: <a href="https://www.youtube.com/watch?v=-mL3zT1iIKw" style="color: #9cf;">AWS re:Invent 2015</a></em>
+</p>
+</div>
+
+---
+
+<style scoped>
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
   }
   h1 {
@@ -756,13 +770,13 @@ Trái tim của hệ thống
 </style>
 
 # **Generic Subdomain**
-Lời giải có sẵn
+Lời giải đã có sẵn
 
 ---
 
 # **Generic Subdomain**
 
-- "Lời giải có sẵn cho một vấn đề"
+- "Lời giải đã có sẵn cho một vấn đề"
 - Cần thiết nhưng không phải là trung tâm của hệ thống
 - Có nhiều giải pháp sẵn có trên thị trường
 - Ví dụ: xuất hóa đơn, xử lý payment, authentication
