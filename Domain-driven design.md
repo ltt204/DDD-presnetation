@@ -13,7 +13,7 @@ marp: true
 ---
 ![width:400px](assets/HCMUS-logo.png)
 
-### Software Engineering - HCMUS
+### HCMUS - Software Engineering
 ###### Date: 05/2025
 
 ##### Lý Trọng Tín
