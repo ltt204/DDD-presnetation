@@ -11,6 +11,28 @@ style: |
   }
 marp: true
 ---
+![width:400px](assets/HCMUS-logo.png)
+
+### Software Engineering - HCMUS
+###### Date: 05/2025
+
+##### Lý Trọng Tín
+##### Phan Thanh Tiến
+---
+
+<style scoped>
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h1, p {
+    margin: 0;
+    text-align: center;
+  }
+
+</style>
 
 ![bg left:40% 80%](https://books.google.com.vn/books/content?id=hHBf4YxMnWMC&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U3xshGfwAYRSwqAhTpt-LiJgsLYUw&w=1280)
 
@@ -364,13 +386,129 @@ Nếu hai bên không có ngôn ngữ chung:
 </style>
 
 # **Model-driven Design**
-1. Sự cần thiết của việc cùng nhau hiểu Domain
+1. Quy trình phát triển truyền thống
 2. Structured Domain Model:
 	1. **Entity**
 	2. **Value Object**
 	3. **Domain Service**
 	4. **Aggregate**
 
+---
+
+<style scoped>
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h1 {
+    margin-bottom: 0;
+    text-align: center;
+  }
+</style>
+
+# **Quy trình phát triển truyền thống**
+![width:700px](assets/water-fall.png)
+
+---
+
+# **Quy trình truyền thống**
+
+- Giai đoạn tuần tự: Thu thập yêu cầu → Thiết kế → Lập trình → ...
+- Thiếu liên kết giữa các phases
+- Không có sự trao đổi hay feedback về cho các giai đoạn trước
+- Kết quả cuối thường khác xa với hình dung ban đầu
+
+---
+
+<style scoped>
+  h1 {
+    margin-bottom: 20px;
+  }
+  blockquote {
+    font-size: 0.9em;
+    font-style: italic;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-left: 5px solid #ccc;
+  }
+</style>
+
+# **Requirement phase**
+
+- Khởi nguồn cho quy trình phát triển phần mềm
+- Cô đọng thông tin từ khách hàng, làm rõ **Domain**
+- Tạo ra các models cho **Domain**
+- Lựa chọn model phù hợp rất quan trọng
+
+> **Analysis Model** chỉ để **giao tiếp và hiểu Domain**, **chưa sẵn sàng để implement**
+> Buổi họp thường không có designers và developers
+
+---
+
+# **Design phase**
+
+- Designers nhận **Analysis Model** không đầy đủ
+- Thiếu kết nối với analysts dẫn đến:
+  - Thiết kế không bám sát **Domain Model**
+  - Khó thể hiện mối liên kết giữa **Domain Objects**
+  - Designers không hiểu rõ **Domain**
+- Model bị thể hiện sai hoặc quá đơn giản hóa
+
+---
+
+# **Implementation**
+
+- **Developers** (có thể) phải implement từ thiết kế không hoàn thiện
+- Không được tham gia quá trình phân tích **Model**
+- Nếu xảy ra vấn đề, buộc phải điều chỉnh **Model** để phù hợp với việc implement.
+- Mất kết nối giữa code và **Domain Model**
+
+> Having created a great **Model** but failing to properly transfer it into code will end up in software of questionable quality.
+
+---
+
+# **Hệ quả**
+
+- Phần mềm không phản ánh đúng nghiệp vụ thực tế
+- Ý niệm của **Model** không được giữ nguyên vẹn
+- Ứng dụng ngày càng xa rời thực tế
+- Refactor trên code không liên kết với domain tốn kém
+- Có thể phải đập đi xây lại với chi phí lớn
+
+---
+
+<style scoped>
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+</style>
+
+# **In a word**
+- Sự tham gia của **Designers** và **Developers** trong thảo luận về domain model là cần thiết
+- **Designers** hiểu model sẽ cho ra bản thiết kế tốt hơn
+- **Developers** đóng góp khía cạnh kỹ thuật giúp thuận lợi cho quá trình cài đặt
+- Khi đó **Model** phù hợp với cả 3 team, ứng dụng hoàn thiện hơn.
+
+---
+<style scoped>
+	section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
+
+# **Structured Domain Model**
 --- 
 
 <style scoped>
@@ -1029,12 +1167,16 @@ Mini book shop:
 
 ---
 
-# **Kết bài**
+<style scoped>
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
 
-- Chuỗi bài viết về DDD và các topics liên quan, mục đích học tập và cải thiện tư duy.
-- Tham khảo thêm:
-  - [Github Discussion](https://github.com/hongsan/random/discussions)
-  - [Linkedin - NGUYEN Hong San](https://www.linkedin.com/in/nguyenhongsan/)
+# **Thanks for your listening!**
 
 ---
 
@@ -1045,7 +1187,7 @@ Mini book shop:
 
 ---
 
-![bg left:40% 90%](image.png)
+![bg left:40% 90%](assets/Hong-Sang-Linkedin.png)
 
 # **Big Shoutout**
 
